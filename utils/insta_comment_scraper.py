@@ -18,6 +18,7 @@ password = os.getenv('password')
 print('username:',username)
 
 def comment_scraper(url: str, user_name = username, pass_word = password):
+    print('user_name:', user_name)
     try:
         print('start')
         print('url:', url)
@@ -70,9 +71,10 @@ def comment_scraper(url: str, user_name = username, pass_word = password):
                 #Use this way to fix ElementClickInterceptedException error
                 driver.execute_script("arguments[0].click();", login_button)
                 print('logged in')
-                # content = driver.page_source.encode("utf-8")
+                content = driver.page_source.encode("utf-8")
                 # with open ('page.txt', 'w') as file:
                 #     file.write(content.decode('utf-8'))
+                print('page content:', content.decode('utf-8'))
             else:
                 pass
 
