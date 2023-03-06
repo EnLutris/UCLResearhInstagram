@@ -27,4 +27,5 @@ RUN apt-get -y install google-chrome-stable
 
 RUN pip install -r requirements.txt
 
-CMD uvicorn app:app --host 0.0.0.0
+#CMD ['python', '/utils/insta_comment_scraper.py']
+CMD uvicorn app:app --host 0.0.0.0 --port 80

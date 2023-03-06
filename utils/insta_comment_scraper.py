@@ -15,6 +15,7 @@ chromedriver_autoinstaller.install()
 load_dotenv()
 username = os.getenv('username')
 password = os.getenv('password')
+print('username:',username)
 
 def comment_scraper(url: str, user_name = username, pass_word = password):
     try:
@@ -29,7 +30,7 @@ def comment_scraper(url: str, user_name = username, pass_word = password):
         options.add_experimental_option('detach', True) #Path to your chrome profile
         options.add_argument("user-data-dir=/tmp/.com.google.Chrome.ig41PN/Default")
         options.add_argument('--no-sandbox')
-        options.add_argument('--headless=new')
+        options.add_argument ('--headless=new')
         options.add_argument('--disable-dev-shm-usage')
         options.add_argument('--disable-gpu')
         options.add_argument("--window-size=1920,1080")
@@ -99,3 +100,9 @@ def comment_scraper(url: str, user_name = username, pass_word = password):
     except WebDriverException:
         return 'Please try again'
 
+if __name__ == '__main__':
+    urls = ['https://www.instagram.com/p/Ca2IjSygvyC', 'https://www.instagram.com/p/CXjUkf6IXHc','https://www.instagram.com/p/CZM8JxdBj5e']
+    for url in urls:
+        comment_scraper(url)
+
+  
