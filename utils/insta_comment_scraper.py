@@ -29,7 +29,7 @@ def comment_scraper(url: str, user_name = username, pass_word = password):
         options.add_experimental_option('detach', True) #Path to your chrome profile
         options.add_argument("user-data-dir=/tmp/.com.google.Chrome.ig41PN/Default")
         options.add_argument('--no-sandbox')
-        #options.add_argument ('--headless=new')
+        options.add_argument ('--headless=new')
         options.add_argument('--disable-dev-shm-usage')
         options.add_argument('--disable-gpu')
         options.add_argument("--window-size=1920,1080")
