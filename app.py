@@ -30,7 +30,7 @@ async def process(username:str, password:str, file: UploadFile = File(...)):
           
     
 @app.post("/url")
-async def youtube_comments(url: str, username:str, password:str):
+async def instagram_comments(url: str, username:str, password:str):
   print(url)
   comments = comment_scraper(url, username, password)
   return comments

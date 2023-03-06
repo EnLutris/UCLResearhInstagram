@@ -1,34 +1,3 @@
-# FROM ubuntu:latest
-# USER root
-# WORKDIR /app
-
-# ENV DEBIAN_FRONTEND=noninteractive
-# ENV TZ=Europe/Berlin
-# RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
-
-# RUN apt-get update \
-#     && apt-get install -y sudo python3-pip python3-dev \
-#     && cd /usr/local/bin \
-#     && ln -s /usr/bin/python3 python \
-#     && pip3 install --upgrade pip 
-
-# RUN adduser --disabled-password --gecos '' docker
-# RUN adduser docker sudo
-# RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
-
-# USER docker
-
-# RUN sudo apt-get update 
-
-# RUN sudo apt-get -qq -y install firefox
-# RUN sudo apt-get install firefox-geckodriver
-
-# COPY . /app
-# RUN pip install --no-cache-dir -r requirements.txt
-
-
-# CMD ['python', '/utils/insta_comment_scraper.py']
-
 FROM python:3.10
 USER root
 WORKDIR /app
@@ -58,5 +27,4 @@ RUN apt-get -y install google-chrome-stable
 
 RUN pip install -r requirements.txt
 
-CMD ['python', '/utils/insta_comment_scraper.py']
-# CMD uvicorn app:app --host 0.0.0.0 
+CMD uvicorn app:app --host 0.0.0.0
