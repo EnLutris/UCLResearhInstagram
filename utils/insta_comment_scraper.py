@@ -41,6 +41,10 @@ def comment_scraper(url: str, user_name = username, pass_word = password):
         driver.implicitly_wait(5)
 
         print('clicking on cookies...')
+        content1 = driver.page_source.encode("utf-8")
+                # with open ('page.txt', 'w') as file:
+                #     file.write(content.decode('utf-8'))
+        print('page content1:', content1.decode('utf-8'))
 
         if len(driver.find_elements(By.XPATH, "//div[text()='HTTP ERROR 429']"))>0:
             print('Sleeping... It will start again in 15 minutes.')
