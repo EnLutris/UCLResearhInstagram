@@ -23,11 +23,12 @@ async def process(username:str, password:str, file: UploadFile = File(...)):
         content = await file.read()
         url_list = re.split(',', content.decode('utf-8'))
         comment_list = []
+        
         for url in url_list:
-           print('url:',url)
+           
            comments = comment_scraper(url, username, password)
            comment_list.append(comments)
-        return comment_list
+        return {'comments':comment_list, 'url':url_list}
           
     
 @app.post("/url")
